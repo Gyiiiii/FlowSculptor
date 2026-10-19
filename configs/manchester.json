@@ -1,0 +1,57 @@
+{
+  "data": {
+    "dataset": "Manchester",
+    "input_dim": 1,
+    "output_dim": 1,
+    "lag": 12,
+    "horizon": 4,
+    "val_ratio": 0.2,
+    "test_ratio": 0.2,
+    "scaler_scope": "all"
+  },
+  "model": {
+    "architecture": "transformer",
+    "channels": 96,
+    "temporal_layers": 2,
+    "spatial_layers": 2,
+    "attention_heads": 4,
+    "ffn_ratio": 2.0,
+    "dropout": 0.05,
+    "use_static_adj": false,
+    "residual_prediction": true,
+    "use_linear_baseline": true,
+    "use_temporal_encoder": true,
+    "use_spatial_encoder": true,
+    "use_readout_fusion": true,
+    "high_flow_branch": true,
+    "high_flow_gate_hidden": 64,
+    "high_flow_gate_bias": -2.0
+  },
+  "high_flow": {
+    "interval_width": 100.0,
+    "loss_alpha": 0.04,
+    "lambda_high": 0.02,
+    "lambda_rel": 0.002,
+    "warmup_epochs": 30,
+    "horizon_weight_gamma": 0.35,
+    "global_loss": "mae"
+  },
+  "train": {
+    "seed": 10,
+    "device": "cuda",
+    "batch_size": 64,
+    "epochs": 200,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "grad_clip": 5.0,
+    "early_stop_patience": 20,
+    "lr_factor": 0.5,
+    "lr_patience": 6,
+    "num_workers": 0,
+    "output_dir": "runs/Manchester_stformer_h4"
+  },
+  "eval": {
+    "mae_thresh": 0.0,
+    "mape_thresh": 0.0
+  }
+}

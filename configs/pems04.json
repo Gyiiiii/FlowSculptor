@@ -1,0 +1,45 @@
+{
+  "data": {
+    "dataset": "PEMS04",
+    "input_dim": 1,
+    "output_dim": 1,
+    "lag": 12,
+    "horizon": 12,
+    "val_ratio": 0.2,
+    "test_ratio": 0.2,
+    "scaler_scope": "all"
+  },
+  "model": {
+    "channels": 48,
+    "temporal_layers": 3,
+    "graph_embed_dim": 16,
+    "graph_topk": 20,
+    "dropout": 0.1,
+    "use_static_adj": true,
+    "residual_prediction": true
+  },
+  "high_flow": {
+    "interval_width": 100.0,
+    "loss_alpha": 0.2,
+    "lambda_high": 0.3,
+    "lambda_rel": 0.05
+  },
+  "train": {
+    "seed": 10,
+    "device": "cuda",
+    "batch_size": 64,
+    "epochs": 200,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "grad_clip": 5.0,
+    "early_stop_patience": 15,
+    "lr_factor": 0.5,
+    "lr_patience": 5,
+    "num_workers": 0,
+    "output_dir": "runs/PEMS04"
+  },
+  "eval": {
+    "mae_thresh": 0.0,
+    "mape_thresh": 0.0
+  }
+}
