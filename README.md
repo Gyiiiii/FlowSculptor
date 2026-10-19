@@ -54,17 +54,6 @@ Place dataset files under the data/ directory, for example:
 python scripts/train.py --config configs/pems04.json
 ```
 
-If you want to run a quick dimension check first, use:
-
-```bash
-python scripts/train.py --config configs/pems04.json --quick_run --device cpu
-```
-
-4. Evaluate the model
-
-```bash
-python scripts/evaluate.py --checkpoint runs/PEMS04/best_model.pth --device cpu
-```
 
 ## Output Results
 
